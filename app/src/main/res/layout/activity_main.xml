@@ -6,86 +6,104 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/celsius_text"
-        android:layout_width="158dp"
-        android:layout_height="58dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginBottom="36dp"
-        android:text="Celsius"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/celsius_seekbar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.846" />
-
-    <TextView
-        android:id="@+id/fahr_text"
-        android:layout_width="158dp"
-        android:layout_height="58dp"
-        android:layout_marginEnd="44dp"
-        android:layout_marginBottom="40dp"
-        android:text="Fahrenheit"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/fahr_seekBar"
-        app:layout_constraintEnd_toStartOf="@+id/celsius_val"
-        app:layout_constraintHorizontal_bias="0.577"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/celsius_seekbar"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <TextView
-        android:id="@+id/fahr_val"
-        android:layout_width="93dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="60dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/msg"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fahr_seekBar"
-        app:layout_constraintVertical_bias="0.057" />
-
-    <SeekBar
-        android:id="@+id/fahr_seekBar"
-        android:layout_width="291dp"
-        android:layout_height="61dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="452dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/celsius_val"
-        android:layout_width="93dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="60dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/fahr_seekBar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/celsius_seekbar"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/msg"
-        android:layout_width="283dp"
-        android:layout_height="65dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="112dp"
-        android:text="TextView"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="338dp"
+        android:layout_height="623dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fahr_seekBar"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <SeekBar
-        android:id="@+id/celsius_seekbar"
-        android:layout_width="291dp"
-        android:layout_height="61dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginBottom="228dp"
-        app:layout_constraintBottom_toTopOf="@+id/fahr_seekBar"
-        app:layout_constraintStart_toStartOf="parent" />
+        <SeekBar
+            android:id="@+id/celsius_seekbar"
+            android:layout_width="291dp"
+            android:layout_height="61dp"
+            android:max="100"
+            android:min="0"
+            app:layout_constraintBottom_toTopOf="@+id/fahr_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.51"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/celsius_text"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/msg"
+            android:layout_width="283dp"
+            android:layout_height="65dp"
+            android:layout_marginTop="92dp"
+            android:text="I wish it were warmer"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.509"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fahr_seekBar"
+            app:layout_constraintVertical_bias="0.103" />
+
+        <TextView
+            android:id="@+id/fahr_val"
+            android:layout_width="93dp"
+            android:layout_height="45dp"
+            android:text="32"
+            app:layout_constraintBottom_toTopOf="@+id/msg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fahr_seekBar"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <SeekBar
+            android:id="@+id/fahr_seekBar"
+            android:layout_width="291dp"
+            android:layout_height="61dp"
+            android:max="212"
+            android:min="0"
+            android:progress="32"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.51"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fahr_text"
+            app:layout_constraintVertical_bias="0.037" />
+
+        <TextView
+            android:id="@+id/celsius_val"
+            android:layout_width="93dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="4dp"
+            android:text="0"
+            app:layout_constraintBottom_toTopOf="@+id/fahr_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/celsius_seekbar"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/fahr_text"
+            android:layout_width="158dp"
+            android:layout_height="58dp"
+            android:text="Fahrenheit"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.449" />
+
+        <TextView
+            android:id="@+id/celsius_text"
+            android:layout_width="158dp"
+            android:layout_height="58dp"
+            android:text="Celsius"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.049" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
