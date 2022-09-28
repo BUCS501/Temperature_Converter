@@ -17,6 +17,8 @@ public class MainActivity extends AppCompatActivity {
     private SeekBar fahr_seekbar;
     private Integer cel_set;
     private Integer fah_set;
+    private Double cel_set_temp;
+    private Double fah_set_temp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +47,15 @@ public class MainActivity extends AppCompatActivity {
                 else{
                     msg.setText("I wish it were colder.");
                 }
+
+                celsius_val.setText(String.valueOf(celsius_seekbar.getProgress()));
+                fah_set = (Integer.parseInt(String.valueOf(celsius_seekbar.getProgress())));
+                fah_set_temp = ((double) fah_set) * (9.0/5.0);
+                fah_set = (int) Math.round(fah_set_temp) + 32;
+                fahr_seekbar.setProgress(Integer.parseInt(String.valueOf(fah_set)));
             }
+
+
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
@@ -55,9 +65,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
                 celsius_val.setText(String.valueOf(celsius_seekbar.getProgress()));
-
-                fah_set = (Integer.parseInt(String.valueOf(celsius_seekbar.getProgress()))) * (9 / 5) + 32;
-
+                fah_set = (Integer.parseInt(String.valueOf(celsius_seekbar.getProgress())));
+                fah_set_temp = ((double) fah_set) * (9.0/5.0);
+                fah_set = (int) Math.round(fah_set_temp) + 32;
                 fahr_seekbar.setProgress(Integer.parseInt(String.valueOf(fah_set)));
             }
         });
@@ -66,6 +76,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                 fahr_val.setText(String.valueOf(fahr_seekbar.getProgress()));
+
+                cel_set = (Integer.parseInt(String.valueOf(fahr_seekbar.getProgress()))) - 32;
+
+                cel_set_temp = ((double) cel_set) * (5.0/9.0);
+
+                cel_set = (int) Math.round(cel_set_temp);
+
+                celsius_seekbar.setProgress(Integer.parseInt(String.valueOf(cel_set)));
             }
 
             @Override
@@ -81,9 +99,9 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 fahr_val.setText(String.valueOf(fahr_seekbar.getProgress()));
-
-                cel_set = (Integer.parseInt(String.valueOf(fahr_seekbar.getProgress())) - 32) * (5 / 9);
-
+                cel_set = (Integer.parseInt(String.valueOf(fahr_seekbar.getProgress()))) - 32;
+                cel_set_temp = ((double) cel_set) * (5.0/9.0);
+                cel_set = (int) Math.round(cel_set_temp);
                 celsius_seekbar.setProgress(Integer.parseInt(String.valueOf(cel_set)));
 
             }
